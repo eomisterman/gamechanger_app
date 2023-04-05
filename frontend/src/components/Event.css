@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: flex-start;
     align-items: center;
-    width: 10%;
+    width: 6%;
   }
 
   .eventDate:first-child {
@@ -25,6 +25,7 @@
   .startTime {
     display: flex;
     align-items: center;
+    padding-right: 1%;
   }
   
   .startTime p {
