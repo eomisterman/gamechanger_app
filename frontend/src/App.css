@@ -1,0 +1,11 @@
+.App {
+  padding: 0 2rem;
+}
+
+.monthEvents {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #dee2e6;
+  border-radius: .75rem;
+  overflow: hidden;
+}
