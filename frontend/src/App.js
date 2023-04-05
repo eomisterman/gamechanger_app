@@ -8,7 +8,7 @@ const api = new ScheduleApi();
 function App() {
   
   const [schedule, setSchedule] = useState([]);
-  const [formatted, setFormatted] = useState([]);
+  const [formatted, setFormatted] = useState({});
 
   useEffect(() => {
     api.getSchedule().then(result => {

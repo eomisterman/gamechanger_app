@@ -1,11 +1,12 @@
 import React from 'react';
 import './Event.css';
+import chevRight from './chevron-right.svg';
 
 function Event({ event }) {
 
     const dateTime = new Date(event.start.datetime);
 
-    const dayOfWeek = dateTime.toLocaleDateString('en-US', {weekday: 'long'});
+    const dayOfWeek = dateTime.toLocaleDateString('en-US', {weekday: 'long'}).substring(0, 3).toUpperCase();
     const dayOfMonth = dateTime.getDate();
     const eventTime = dateTime.toLocaleTimeString(
         'en-US',
@@ -15,17 +16,19 @@ function Event({ event }) {
     return (
         <div className="Event">
             <section className="eventDate">
-                <p>{dayOfWeek}</p>
-                <p>{dayOfMonth}</p>
+                <span id="weekday">{dayOfWeek}</span>
+                <span id="dayNum">{dayOfMonth}</span>
             </section>
             <section className="eventDetails">
-                <p>{(event.home_away === "home" ? "vs " : "@ ") + 
-                event.opponent_name}</p>
-                <p>at {event.location}</p>
+                <span id="opponent">
+                    {(event.home_away === "home" ? "vs. " : "@ ") + 
+                        event.opponent_name}
+                </span>
+                <span id="location">at {event.location}</span>
             </section>
             <section className="startTime">
-                <p>{eventTime}</p>
-                <img src="" alt="arrow" />
+                <span id="time">{eventTime}</span>
+                <img id="chevron" src={chevRight} alt="arrow" />
             </section>
         </div>
     );
