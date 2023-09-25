@@ -6,23 +6,20 @@ import ScheduleApi from './api/Api';
 const api = new ScheduleApi();
 
 function App() {
-  
-  const [schedule, setSchedule] = useState([]);
   const [formatted, setFormatted] = useState({});
 
   useEffect(() => {
     api.getSchedule().then(result => {
-      setSchedule(result);
       setFormatted(formatGames(result));
     })
     .catch(error => {
+      setFormatted({});
       console.error(error.message);
     })
   }, [])
 
   const formatGames = (schedule) => {
     return schedule.reduce((acc, event) => {
-      console.log(event.start.datetime);
       const date = new Date(event.start.datetime);
       const key = `${date.toLocaleDateString(
         'en-US',
